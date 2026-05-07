@@ -42,7 +42,7 @@
   --background: oklch(0.06 0 0);                 /* #080808 near-black */
   --foreground: oklch(0.94 0.012 80);             /* #F0EBE3 off-white */
   --muted: oklch(0.14 0 0);
-  --muted-foreground: oklch(0.62 0.01 80);
+  --muted-foreground: oklch(0.82 0.012 80);
   --card: oklch(0.09 0.005 280);
   --card-foreground: var(--foreground);
   --popover: oklch(0.09 0.005 280);

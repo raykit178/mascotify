@@ -73,20 +73,20 @@ function CreatePage() {
   return (
     <div className="relative min-h-screen overflow-hidden">
       <BackgroundFx />
-      <BrandHeader />
-
-      <main className="relative z-10 mx-auto max-w-3xl px-6 pb-40 sm:pb-20 lg:px-10">
-        <div className="text-center">
-          <h1 className="font-display text-3xl sm:text-4xl font-light leading-tight tracking-tight">
+      <BrandHeader
+        right={
+          <h1 className="font-display text-2xl sm:text-3xl font-light leading-none tracking-tight">
             Create your{" "}
             <em className="text-iridescent not-italic">
               <span className="italic">badge.</span>
             </em>
           </h1>
-        </div>
+        }
+      />
 
+      <main className="relative z-10 mx-auto max-w-3xl px-6 pb-40 sm:pb-10 lg:px-10">
         {/* Upload */}
-        <section className="mt-5">
+        <section className="mt-2 sm:mt-4">
           <SectionLabel n="01" title="Upload your photo" />
           <input
             ref={fileInputRef}
@@ -125,7 +125,7 @@ function CreatePage() {
         </section>
 
         {/* Styles */}
-        <section className="mt-6">
+        <section className="mt-5">
           <SectionLabel n="02" title="Pick a style" />
           <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-3">
             {STYLES.map((s) => {
@@ -140,24 +140,24 @@ function CreatePage() {
                       : "border-dotted border-foreground/30 bg-card/30 hover:border-2 hover:border-dotted hover:border-foreground/60 hover:bg-card/50"
                   }`}
                 >
-                  <div className="flex items-start gap-3 sm:flex-col sm:gap-3">
-                    <div className="shrink-0 aspect-square w-24 sm:w-full overflow-hidden rounded-md bg-foreground">
+                  <div className="flex items-start gap-3 sm:flex-col sm:gap-2">
+                    <div className="shrink-0 aspect-square w-20 sm:w-full overflow-hidden rounded-md bg-foreground">
                       <img src={s.output} alt={s.name} className="h-full w-full object-contain" />
                     </div>
                     <div className="min-w-0 flex-1">
                       <div className="flex items-start justify-between gap-2">
-                        <h3 className="font-display text-base sm:text-lg font-medium leading-tight text-foreground">
+                        <h3 className="font-display text-lg font-semibold leading-tight text-foreground">
                           {s.name}
                         </h3>
                         <span
                           className={`shrink-0 mt-1 h-3.5 w-3.5 rounded-full border ${
                             selected
                               ? "border-foreground bg-gradient-to-br from-[var(--iridescent-from)] to-[var(--iridescent-to)]"
-                              : "border-foreground/30"
+                              : "border-foreground/40"
                           }`}
                         />
                       </div>
-                      <p className="mt-1.5 font-sans text-xs leading-snug text-muted-foreground">
+                      <p className="mt-1 font-sans text-xs leading-snug text-foreground/85">
                         {s.description}
                       </p>
                     </div>
@@ -169,7 +169,7 @@ function CreatePage() {
         </section>
 
         {/* Logo text */}
-        <section className="mt-6">
+        <section className="mt-5">
           <SectionLabel n="03" title="Logo text" />
           <div className="relative mt-3">
             <input
@@ -178,20 +178,20 @@ function CreatePage() {
               maxLength={NAME_MAX}
               onChange={(e) => badgeStore.set({ name: e.target.value })}
               placeholder="BITE SCIENCE"
-              className="w-full rounded-md border border-dotted border-foreground/30 bg-card/40 px-4 py-3 pr-14 font-sans text-sm text-foreground placeholder:text-foreground/40 transition hover:border-foreground/60 focus:border-2 focus:border-dotted focus:border-foreground/80 focus:bg-card/60 focus:outline-none"
+              className="w-full rounded-md border border-dotted border-foreground/40 bg-card/40 px-4 py-3 pr-14 font-sans text-sm text-foreground placeholder:text-foreground/50 transition hover:border-foreground/70 focus:border-2 focus:border-dotted focus:border-foreground/90 focus:bg-card/60 focus:outline-none"
             />
-            <span className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 font-sans text-[10px] text-muted-foreground">
+            <span className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 font-sans text-[10px] text-foreground/70">
               {name.length}/{NAME_MAX}
             </span>
           </div>
         </section>
 
         {/* CTA — desktop */}
-        <section className="mt-8 hidden text-center sm:block">
+        <section className="mt-5 hidden text-center sm:block">
           <button
             onClick={handleCheckout}
             disabled={!canSubmit}
-            className={`iridescent-border w-full px-12 py-6 font-sans text-lg font-semibold tracking-wide text-foreground transition disabled:opacity-40 disabled:cursor-not-allowed ${
+            className={`iridescent-border w-full px-12 py-5 font-sans text-lg font-semibold tracking-wide text-foreground transition disabled:opacity-40 disabled:cursor-not-allowed ${
               canSubmit
                 ? "bg-gradient-to-r from-[var(--iridescent-from)]/15 to-[var(--iridescent-to)]/15 shadow-[0_18px_60px_-15px_rgba(120,80,255,0.55)] hover:from-[var(--iridescent-from)]/25 hover:to-[var(--iridescent-to)]/25"
                 : ""
@@ -199,10 +199,11 @@ function CreatePage() {
           >
             Get my badge — $9
           </button>
-          <p className="mt-3 font-sans text-xs text-muted-foreground">
+          <p className="mt-2 font-sans text-xs text-foreground/75">
             Secure checkout via Stripe. Full refund if generation fails.
           </p>
         </section>
+
       </main>
 
       {/* CTA — mobile sticky */}
@@ -229,8 +230,10 @@ function CreatePage() {
 function SectionLabel({ n, title }: { n: string; title: string }) {
   return (
     <div className="flex items-baseline gap-3">
-      <span className="font-display text-iridescent text-xl">{n}</span>
-      <h2 className="font-sans text-xs uppercase tracking-[0.2em] text-foreground/80">
+      <span className="font-display text-iridescent text-2xl font-semibold leading-none">
+        {n}
+      </span>
+      <h2 className="font-sans text-sm font-semibold uppercase tracking-[0.18em] text-foreground">
         {title}
       </h2>
     </div>
