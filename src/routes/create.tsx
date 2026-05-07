@@ -98,67 +98,61 @@ function CreatePage() {
           />
           <label
             htmlFor="photo-input"
-            className="group mt-3 flex min-h-[224px] cursor-pointer flex-col items-center justify-center gap-4 rounded-md border border-dotted border-foreground/30 bg-card/40 px-6 py-10 text-center transition hover:border-2 hover:border-dotted hover:border-foreground/60 hover:bg-card/60"
+            className="group mt-3 flex min-h-[160px] cursor-pointer flex-col items-center justify-center gap-3 rounded-md border border-dotted border-foreground/30 bg-card/40 px-6 py-6 text-center transition hover:border-2 hover:border-dotted hover:border-foreground/60 hover:bg-card/60"
           >
             {photoPreview ? (
               <>
-                <img src={photoPreview} alt="" className="h-28 w-28 rounded-md object-cover" />
-                <span className="font-sans text-sm text-foreground/90">{photo?.name}</span>
-                <span className="font-sans text-xs uppercase tracking-wider text-muted-foreground">
+                <img src={photoPreview} alt="" className="h-20 w-20 rounded-md object-cover" />
+                <span className="font-sans text-xs text-foreground/90">{photo?.name}</span>
+                <span className="font-sans text-[10px] uppercase tracking-wider text-muted-foreground">
                   Change photo
                 </span>
               </>
             ) : (
               <>
-                <span className="flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-[var(--iridescent-from)] to-[var(--iridescent-to)] text-3xl font-light text-background shadow-lg transition group-hover:scale-105">
+                <span className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-[var(--iridescent-from)] to-[var(--iridescent-to)] text-2xl font-light text-background shadow-lg transition group-hover:scale-105">
                   +
                 </span>
-                <span className="font-sans text-sm text-foreground/90">
+                <span className="font-sans text-xs text-foreground/90">
                   Choose a clear, well-lit photo
                 </span>
-                <span className="font-sans text-xs uppercase tracking-wider text-muted-foreground">
+                <span className="font-sans text-[10px] uppercase tracking-wider text-muted-foreground">
                   Browse files
                 </span>
               </>
             )}
           </label>
-          <p className="mt-2 font-sans text-xs text-muted-foreground">
-            Best results: clear face, good lighting. Avoid sunglasses or heavy shadows.
-          </p>
         </section>
 
         {/* Styles */}
-        <section className="mx-auto mt-10 max-w-5xl">
+        <section className="mx-auto mt-6 max-w-5xl">
           <SectionLabel n="02" title="Pick a style" />
-          <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-3">
+          <div className="mt-3 grid grid-cols-3 gap-3">
             {STYLES.map((s) => {
               const selected = style === s.name;
               return (
                 <button
                   key={s.name}
                   onClick={() => badgeStore.set({ style: s.name })}
-                  className={`group text-left rounded-lg border p-3 transition ${
+                  className={`group relative text-left rounded-lg border p-2.5 transition ${
                     selected
-                      ? "border-transparent iridescent-border bg-card/50"
-                      : "border-border bg-card/30 hover:border-foreground/30"
+                      ? "border-foreground/80 bg-card/70 ring-2 ring-[var(--iridescent-from)]/60 shadow-[0_0_0_1px_var(--iridescent-to),0_10px_30px_-10px_rgba(120,80,255,0.5)]"
+                      : "border-dotted border-foreground/30 bg-card/30 hover:border-2 hover:border-dotted hover:border-foreground/60 hover:bg-card/50"
                   }`}
                 >
-                  <div className="aspect-square w-full overflow-hidden rounded-md bg-foreground">
+                  <div className="mx-auto aspect-square w-1/2 overflow-hidden rounded-md bg-foreground">
                     <img src={s.output} alt={s.name} className="h-full w-full object-contain" />
                   </div>
-                  <div className="mt-3 flex items-center justify-between">
-                    <h3 className="font-display text-lg">{s.name}</h3>
+                  <div className="mt-2.5 flex items-center justify-between gap-2">
+                    <h3 className="font-display text-base font-medium leading-tight">{s.name}</h3>
                     <span
-                      className={`h-3.5 w-3.5 rounded-full border ${
+                      className={`shrink-0 h-3.5 w-3.5 rounded-full border ${
                         selected
                           ? "border-foreground bg-gradient-to-br from-[var(--iridescent-from)] to-[var(--iridescent-to)]"
                           : "border-foreground/30"
                       }`}
                     />
                   </div>
-                  <p className="mt-1 font-sans text-xs leading-relaxed text-muted-foreground">
-                    {s.description}
-                  </p>
                 </button>
               );
             })}
@@ -166,7 +160,7 @@ function CreatePage() {
         </section>
 
         {/* Logo text */}
-        <section className="mx-auto mt-10 max-w-2xl">
+        <section className="mx-auto mt-6 max-w-2xl">
           <SectionLabel n="03" title="Logo text" />
           <div className="relative mt-3">
             <input
@@ -175,19 +169,16 @@ function CreatePage() {
               maxLength={NAME_MAX}
               onChange={(e) => badgeStore.set({ name: e.target.value })}
               placeholder="BITE SCIENCE"
-              className="w-full rounded-md border border-border bg-card/40 px-4 py-3 pr-14 font-sans text-sm text-foreground placeholder:text-foreground/30 focus:border-foreground/40 focus:outline-none"
+              className="w-full rounded-md border border-dotted border-foreground/30 bg-card/40 px-4 py-3 pr-14 font-sans text-sm text-foreground placeholder:text-foreground/40 transition hover:border-foreground/60 focus:border-2 focus:border-dotted focus:border-foreground/80 focus:bg-card/60 focus:outline-none"
             />
             <span className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 font-sans text-[10px] text-muted-foreground">
               {name.length}/{NAME_MAX}
             </span>
           </div>
-          <p className="mt-2 font-sans text-xs text-muted-foreground">
-            Your name, brand, or handle. Keep it short for the cleanest result.
-          </p>
         </section>
 
         {/* CTA */}
-        <section className="mx-auto mt-12 max-w-2xl text-center">
+        <section className="mx-auto mt-8 max-w-2xl text-center">
           <button
             onClick={handleCheckout}
             disabled={!canSubmit}
