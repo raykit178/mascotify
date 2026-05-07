@@ -75,18 +75,18 @@ function CreatePage() {
       <BackgroundFx />
       <BrandHeader />
 
-      <main className="relative z-10 mx-auto max-w-5xl px-6 pb-20 lg:px-10">
-        <div className="mx-auto max-w-2xl text-center">
-          <div className="flex items-center justify-center gap-2">
-            <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-            <span className="font-sans text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
-              Step 1 of 2
-            </span>
-          </div>
+      <main className="relative z-10 mx-auto max-w-2xl px-6 pb-20 lg:px-10">
+        <div className="text-center">
+          <h1 className="font-display text-3xl sm:text-4xl font-light leading-tight tracking-tight">
+            Create your{" "}
+            <em className="text-iridescent not-italic">
+              <span className="italic">badge.</span>
+            </em>
+          </h1>
         </div>
 
         {/* Upload */}
-        <section className="mx-auto mt-5 max-w-2xl">
+        <section className="mt-5">
           <SectionLabel n="01" title="Upload your photo" />
           <input
             ref={fileInputRef}
