@@ -125,7 +125,7 @@ function CreatePage() {
         </section>
 
         {/* Styles */}
-        <section className="mx-auto mt-6 max-w-5xl">
+        <section className="mt-6">
           <SectionLabel n="02" title="Pick a style" />
           <div className="mt-3 grid grid-cols-3 gap-3">
             {STYLES.map((s) => {
@@ -134,24 +134,33 @@ function CreatePage() {
                 <button
                   key={s.name}
                   onClick={() => badgeStore.set({ style: s.name })}
-                  className={`group relative text-left rounded-lg border p-2.5 transition ${
+                  className={`group relative text-left rounded-lg border p-3 transition ${
                     selected
-                      ? "border-foreground/80 bg-card/70 ring-2 ring-[var(--iridescent-from)]/60 shadow-[0_0_0_1px_var(--iridescent-to),0_10px_30px_-10px_rgba(120,80,255,0.5)]"
+                      ? "border-transparent bg-card/80 ring-2 ring-[var(--iridescent-from)] shadow-[0_0_0_1px_var(--iridescent-to),0_18px_50px_-15px_rgba(120,80,255,0.6)]"
                       : "border-dotted border-foreground/30 bg-card/30 hover:border-2 hover:border-dotted hover:border-foreground/60 hover:bg-card/50"
                   }`}
                 >
-                  <div className="mx-auto aspect-square w-1/2 overflow-hidden rounded-md bg-foreground">
-                    <img src={s.output} alt={s.name} className="h-full w-full object-contain" />
-                  </div>
-                  <div className="mt-2.5 flex items-center justify-between gap-2">
-                    <h3 className="font-display text-base font-medium leading-tight">{s.name}</h3>
-                    <span
-                      className={`shrink-0 h-3.5 w-3.5 rounded-full border ${
-                        selected
-                          ? "border-foreground bg-gradient-to-br from-[var(--iridescent-from)] to-[var(--iridescent-to)]"
-                          : "border-foreground/30"
-                      }`}
-                    />
+                  <div className="flex items-start gap-3">
+                    <div className="shrink-0 aspect-square w-12 overflow-hidden rounded-md bg-foreground">
+                      <img src={s.output} alt={s.name} className="h-full w-full object-contain" />
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <div className="flex items-center justify-between gap-2">
+                        <h3 className="font-sans text-sm font-semibold leading-tight text-foreground">
+                          {s.name}
+                        </h3>
+                        <span
+                          className={`shrink-0 h-3.5 w-3.5 rounded-full border ${
+                            selected
+                              ? "border-foreground bg-gradient-to-br from-[var(--iridescent-from)] to-[var(--iridescent-to)]"
+                              : "border-foreground/30"
+                          }`}
+                        />
+                      </div>
+                      <p className="mt-1 font-sans text-[11px] leading-snug text-muted-foreground">
+                        {s.description}
+                      </p>
+                    </div>
                   </div>
                 </button>
               );
@@ -160,7 +169,7 @@ function CreatePage() {
         </section>
 
         {/* Logo text */}
-        <section className="mx-auto mt-6 max-w-2xl">
+        <section className="mt-6">
           <SectionLabel n="03" title="Logo text" />
           <div className="relative mt-3">
             <input
@@ -178,11 +187,11 @@ function CreatePage() {
         </section>
 
         {/* CTA */}
-        <section className="mx-auto mt-8 max-w-2xl text-center">
+        <section className="mt-8 text-center">
           <button
             onClick={handleCheckout}
             disabled={!canSubmit}
-            className="iridescent-border w-full sm:w-auto px-10 py-4 font-sans text-sm font-medium tracking-wide text-foreground transition disabled:opacity-40 disabled:cursor-not-allowed hover:[&:not(:disabled)]:bg-foreground/[0.03]"
+            className="iridescent-border w-full px-12 py-5 font-sans text-base font-medium tracking-wide text-foreground transition disabled:opacity-40 disabled:cursor-not-allowed hover:[&:not(:disabled)]:bg-foreground/[0.03]"
           >
             Get my badge — $9
           </button>
