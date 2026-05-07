@@ -73,20 +73,20 @@ function CreatePage() {
   return (
     <div className="relative min-h-screen overflow-hidden">
       <BackgroundFx />
-      <BrandHeader />
-
-      <main className="relative z-10 mx-auto max-w-3xl px-6 pb-40 sm:pb-20 lg:px-10">
-        <div className="text-center">
-          <h1 className="font-display text-3xl sm:text-4xl font-light leading-tight tracking-tight">
+      <BrandHeader
+        right={
+          <h1 className="font-display text-2xl sm:text-3xl font-light leading-none tracking-tight">
             Create your{" "}
             <em className="text-iridescent not-italic">
               <span className="italic">badge.</span>
             </em>
           </h1>
-        </div>
+        }
+      />
 
+      <main className="relative z-10 mx-auto max-w-3xl px-6 pb-40 sm:pb-10 lg:px-10">
         {/* Upload */}
-        <section className="mt-5">
+        <section className="mt-2 sm:mt-4">
           <SectionLabel n="01" title="Upload your photo" />
           <input
             ref={fileInputRef}
