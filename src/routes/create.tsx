@@ -83,16 +83,10 @@ function CreatePage() {
               Step 1 of 2
             </span>
           </div>
-          <h1 className="font-display mt-5 text-3xl sm:text-4xl lg:text-5xl font-light leading-tight">
-            Build your <em className="text-iridescent not-italic"><span className="italic">badge.</span></em>
-          </h1>
-          <p className="mt-3 font-sans text-sm text-muted-foreground">
-            Upload a photo, pick a style, and add your text.
-          </p>
         </div>
 
         {/* Upload */}
-        <section className="mx-auto mt-10 max-w-2xl">
+        <section className="mx-auto mt-5 max-w-2xl">
           <SectionLabel n="01" title="Upload your photo" />
           <input
             ref={fileInputRef}
