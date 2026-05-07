@@ -7,12 +7,27 @@ import vectorIn from "@/assets/vector_input.jpeg";
 import vectorOut from "@/assets/vector_output.png";
 
 export const STYLES = [
-  { name: "Classic Engraving", input: engravingIn, output: engravingOut },
-  { name: "Geometric Shadows", input: geometricIn, output: geometricOut },
-  { name: "Clean Vector", input: vectorIn, output: vectorOut },
+  {
+    name: "Classic Engraving",
+    description: "Hand-etched detail with timeless monochrome shading.",
+    input: engravingIn,
+    output: engravingOut,
+  },
+  {
+    name: "Geometric Shadows",
+    description: "Bold geometric planes with deep contrast and modern edge.",
+    input: geometricIn,
+    output: geometricOut,
+  },
+  {
+    name: "Clean Vector",
+    description: "Crisp vector lines, flat fills — versatile for any platform.",
+    input: vectorIn,
+    output: vectorOut,
+  },
 ] as const;
 
-export function StyleCarousel() {
+export function StyleCarousel({ compact = false }: { compact?: boolean }) {
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
@@ -23,10 +38,11 @@ export function StyleCarousel() {
   const slide = STYLES[index];
 
   return (
-    <div className="iridescent-border w-full max-w-xl p-3 sm:p-5 shadow-[0_30px_80px_-30px_rgba(120,80,255,0.35)]">
+    <div
+      className={`iridescent-border w-full ${compact ? "max-w-sm p-2.5" : "max-w-xl p-3 sm:p-5"} shadow-[0_30px_80px_-30px_rgba(120,80,255,0.35)]`}
+    >
       <div className="relative overflow-hidden rounded-md">
-        <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-3 sm:gap-5 px-2 py-3">
-          {/* Before */}
+        <div className={`grid grid-cols-[1fr_auto_1fr] items-center ${compact ? "gap-2 px-1.5 py-2" : "gap-3 sm:gap-5 px-2 py-3"}`}>
           <div className="relative aspect-square w-full overflow-hidden rounded-md bg-muted">
             <img
               key={`in-${index}`}
@@ -38,16 +54,7 @@ export function StyleCarousel() {
               Your photo
             </span>
           </div>
-
-          {/* Arrow */}
-          <div
-            aria-hidden
-            className="text-iridescent text-2xl sm:text-3xl font-light leading-none"
-          >
-            →
-          </div>
-
-          {/* After */}
+          <div aria-hidden className="text-iridescent text-2xl sm:text-3xl font-light leading-none">→</div>
           <div className="relative aspect-square w-full overflow-hidden rounded-md bg-foreground">
             <img
               key={`out-${index}`}
@@ -58,8 +65,7 @@ export function StyleCarousel() {
           </div>
         </div>
 
-        {/* Footer: dots + style name */}
-        <div className="flex items-center justify-between px-3 pb-2 pt-1">
+        <div className={`flex items-center justify-between ${compact ? "px-2 pb-1.5 pt-0.5" : "px-3 pb-2 pt-1"}`}>
           <div className="flex items-center gap-1.5">
             {STYLES.map((_, i) => (
               <button
@@ -74,7 +80,7 @@ export function StyleCarousel() {
               />
             ))}
           </div>
-          <span className="font-sans text-[10px] sm:text-xs uppercase tracking-[0.2em] text-foreground">
+          <span className={`font-sans uppercase tracking-[0.2em] text-foreground ${compact ? "text-[9px]" : "text-[10px] sm:text-xs"}`}>
             {slide.name}
           </span>
         </div>
