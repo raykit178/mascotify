@@ -104,21 +104,29 @@ function CreatePage() {
           />
           <label
             htmlFor="photo-input"
-            className="mt-3 flex cursor-pointer items-center justify-between gap-4 rounded-md border border-border bg-card/40 px-4 py-3 transition hover:border-foreground/30"
+            className="group mt-3 flex min-h-[224px] cursor-pointer flex-col items-center justify-center gap-4 rounded-md border border-dashed border-border bg-card/40 px-6 py-10 text-center transition hover:border-foreground/40 hover:bg-card/60"
           >
-            <span className="flex items-center gap-3">
-              {photoPreview ? (
-                <img src={photoPreview} alt="" className="h-10 w-10 rounded-sm object-cover" />
-              ) : (
-                <span className="flex h-10 w-10 items-center justify-center rounded-sm bg-muted text-foreground/60">+</span>
-              )}
-              <span className="font-sans text-sm text-foreground/90">
-                {photo ? photo.name : "Choose a clear, well-lit photo"}
-              </span>
-            </span>
-            <span className="font-sans text-xs uppercase tracking-wider text-muted-foreground">
-              {photo ? "Change" : "Browse"}
-            </span>
+            {photoPreview ? (
+              <>
+                <img src={photoPreview} alt="" className="h-28 w-28 rounded-md object-cover" />
+                <span className="font-sans text-sm text-foreground/90">{photo?.name}</span>
+                <span className="font-sans text-xs uppercase tracking-wider text-muted-foreground">
+                  Change photo
+                </span>
+              </>
+            ) : (
+              <>
+                <span className="flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-[var(--iridescent-from)] to-[var(--iridescent-to)] text-3xl font-light text-background shadow-lg transition group-hover:scale-105">
+                  +
+                </span>
+                <span className="font-sans text-sm text-foreground/90">
+                  Choose a clear, well-lit photo
+                </span>
+                <span className="font-sans text-xs uppercase tracking-wider text-muted-foreground">
+                  Browse files
+                </span>
+              </>
+            )}
           </label>
           <p className="mt-2 font-sans text-xs text-muted-foreground">
             Best results: clear face, good lighting. Avoid sunglasses or heavy shadows.
