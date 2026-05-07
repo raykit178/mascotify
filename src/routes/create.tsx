@@ -75,7 +75,7 @@ function CreatePage() {
       <BackgroundFx />
       <BrandHeader />
 
-      <main className="relative z-10 mx-auto max-w-2xl px-6 pb-20 lg:px-10">
+      <main className="relative z-10 mx-auto max-w-3xl px-6 pb-40 sm:pb-20 lg:px-10">
         <div className="text-center">
           <h1 className="font-display text-3xl sm:text-4xl font-light leading-tight tracking-tight">
             Create your{" "}
