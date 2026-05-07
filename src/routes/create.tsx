@@ -230,7 +230,7 @@ function CreatePage() {
 function SectionLabel({ n, title }: { n: string; title: string }) {
   return (
     <div className="flex items-baseline gap-3">
-      <span className="font-display text-iridescent text-2xl font-semibold leading-none">
+      <span className="font-sans text-foreground/90 text-base font-semibold leading-none">
         {n}
       </span>
       <h2 className="font-sans text-sm font-semibold uppercase tracking-[0.18em] text-foreground">
