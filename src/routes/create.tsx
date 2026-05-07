@@ -127,7 +127,7 @@ function CreatePage() {
         {/* Styles */}
         <section className="mt-6">
           <SectionLabel n="02" title="Pick a style" />
-          <div className="mt-3 grid grid-cols-3 gap-3">
+          <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-3">
             {STYLES.map((s) => {
               const selected = style === s.name;
               return (
@@ -140,24 +140,24 @@ function CreatePage() {
                       : "border-dotted border-foreground/30 bg-card/30 hover:border-2 hover:border-dotted hover:border-foreground/60 hover:bg-card/50"
                   }`}
                 >
-                  <div className="flex items-start gap-3">
-                    <div className="shrink-0 aspect-square w-12 overflow-hidden rounded-md bg-foreground">
+                  <div className="flex items-start gap-3 sm:flex-col sm:gap-3">
+                    <div className="shrink-0 aspect-square w-24 sm:w-full overflow-hidden rounded-md bg-foreground">
                       <img src={s.output} alt={s.name} className="h-full w-full object-contain" />
                     </div>
                     <div className="min-w-0 flex-1">
-                      <div className="flex items-center justify-between gap-2">
-                        <h3 className="font-sans text-sm font-semibold leading-tight text-foreground">
+                      <div className="flex items-start justify-between gap-2">
+                        <h3 className="font-display text-base sm:text-lg font-medium leading-tight text-foreground">
                           {s.name}
                         </h3>
                         <span
-                          className={`shrink-0 h-3.5 w-3.5 rounded-full border ${
+                          className={`shrink-0 mt-1 h-3.5 w-3.5 rounded-full border ${
                             selected
                               ? "border-foreground bg-gradient-to-br from-[var(--iridescent-from)] to-[var(--iridescent-to)]"
                               : "border-foreground/30"
                           }`}
                         />
                       </div>
-                      <p className="mt-1 font-sans text-[11px] leading-snug text-muted-foreground">
+                      <p className="mt-1.5 font-sans text-xs leading-snug text-muted-foreground">
                         {s.description}
                       </p>
                     </div>
