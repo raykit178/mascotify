@@ -98,7 +98,7 @@ function CreatePage() {
           />
           <label
             htmlFor="photo-input"
-            className="group mt-3 flex min-h-[160px] cursor-pointer flex-col items-center justify-center gap-3 rounded-md border border-dotted border-foreground/30 bg-card/40 px-6 py-6 text-center transition hover:border-2 hover:border-dotted hover:border-foreground/60 hover:bg-card/60"
+            className="group mt-3 flex min-h-[120px] cursor-pointer flex-col items-center justify-center gap-2 rounded-md border border-dotted border-foreground/30 bg-card/40 px-6 py-5 text-center transition hover:border-2 hover:border-dotted hover:border-foreground/60 hover:bg-card/60"
           >
             {photoPreview ? (
               <>
