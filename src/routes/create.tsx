@@ -186,12 +186,16 @@ function CreatePage() {
           </div>
         </section>
 
-        {/* CTA */}
-        <section className="mt-8 text-center">
+        {/* CTA — desktop */}
+        <section className="mt-8 hidden text-center sm:block">
           <button
             onClick={handleCheckout}
             disabled={!canSubmit}
-            className="iridescent-border w-full px-12 py-5 font-sans text-base font-medium tracking-wide text-foreground transition disabled:opacity-40 disabled:cursor-not-allowed hover:[&:not(:disabled)]:bg-foreground/[0.03]"
+            className={`iridescent-border w-full px-12 py-6 font-sans text-lg font-semibold tracking-wide text-foreground transition disabled:opacity-40 disabled:cursor-not-allowed ${
+              canSubmit
+                ? "bg-gradient-to-r from-[var(--iridescent-from)]/15 to-[var(--iridescent-to)]/15 shadow-[0_18px_60px_-15px_rgba(120,80,255,0.55)] hover:from-[var(--iridescent-from)]/25 hover:to-[var(--iridescent-to)]/25"
+                : ""
+            }`}
           >
             Get my badge — $9
           </button>
@@ -200,6 +204,24 @@ function CreatePage() {
           </p>
         </section>
       </main>
+
+      {/* CTA — mobile sticky */}
+      <div className="fixed inset-x-0 bottom-0 z-20 border-t border-foreground/10 bg-background/95 px-4 pb-[max(1rem,env(safe-area-inset-bottom))] pt-3 backdrop-blur-md sm:hidden">
+        <button
+          onClick={handleCheckout}
+          disabled={!canSubmit}
+          className={`iridescent-border w-full px-6 py-5 font-sans text-base font-semibold tracking-wide text-foreground transition disabled:opacity-40 disabled:cursor-not-allowed ${
+            canSubmit
+              ? "bg-gradient-to-r from-[var(--iridescent-from)]/20 to-[var(--iridescent-to)]/20 shadow-[0_18px_60px_-15px_rgba(120,80,255,0.55)]"
+              : ""
+          }`}
+        >
+          Get my badge — $9
+        </button>
+        <p className="mt-2 text-center font-sans text-[10px] text-muted-foreground">
+          Secure checkout via Stripe · Full refund if generation fails
+        </p>
+      </div>
     </div>
   );
 }
