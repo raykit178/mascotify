@@ -204,23 +204,6 @@ function CreatePage() {
           </p>
         </section>
 
-        {/* CTA — desktop */}
-        <section className="mt-8 hidden text-center sm:block">
-          <button
-            onClick={handleCheckout}
-            disabled={!canSubmit}
-            className={`iridescent-border w-full px-12 py-6 font-sans text-lg font-semibold tracking-wide text-foreground transition disabled:opacity-40 disabled:cursor-not-allowed ${
-              canSubmit
-                ? "bg-gradient-to-r from-[var(--iridescent-from)]/15 to-[var(--iridescent-to)]/15 shadow-[0_18px_60px_-15px_rgba(120,80,255,0.55)] hover:from-[var(--iridescent-from)]/25 hover:to-[var(--iridescent-to)]/25"
-                : ""
-            }`}
-          >
-            Get my badge — $9
-          </button>
-          <p className="mt-3 font-sans text-xs text-muted-foreground">
-            Secure checkout via Stripe. Full refund if generation fails.
-          </p>
-        </section>
       </main>
 
       {/* CTA — mobile sticky */}
