@@ -169,7 +169,7 @@ function CreatePage() {
         </section>
 
         {/* Logo text */}
-        <section className="mt-6">
+        <section className="mt-5">
           <SectionLabel n="03" title="Logo text" />
           <div className="relative mt-3">
             <input
@@ -178,12 +178,30 @@ function CreatePage() {
               maxLength={NAME_MAX}
               onChange={(e) => badgeStore.set({ name: e.target.value })}
               placeholder="BITE SCIENCE"
-              className="w-full rounded-md border border-dotted border-foreground/30 bg-card/40 px-4 py-3 pr-14 font-sans text-sm text-foreground placeholder:text-foreground/40 transition hover:border-foreground/60 focus:border-2 focus:border-dotted focus:border-foreground/80 focus:bg-card/60 focus:outline-none"
+              className="w-full rounded-md border border-dotted border-foreground/40 bg-card/40 px-4 py-3 pr-14 font-sans text-sm text-foreground placeholder:text-foreground/50 transition hover:border-foreground/70 focus:border-2 focus:border-dotted focus:border-foreground/90 focus:bg-card/60 focus:outline-none"
             />
-            <span className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 font-sans text-[10px] text-muted-foreground">
+            <span className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 font-sans text-[10px] text-foreground/70">
               {name.length}/{NAME_MAX}
             </span>
           </div>
+        </section>
+
+        {/* CTA — desktop */}
+        <section className="mt-5 hidden text-center sm:block">
+          <button
+            onClick={handleCheckout}
+            disabled={!canSubmit}
+            className={`iridescent-border w-full px-12 py-5 font-sans text-lg font-semibold tracking-wide text-foreground transition disabled:opacity-40 disabled:cursor-not-allowed ${
+              canSubmit
+                ? "bg-gradient-to-r from-[var(--iridescent-from)]/15 to-[var(--iridescent-to)]/15 shadow-[0_18px_60px_-15px_rgba(120,80,255,0.55)] hover:from-[var(--iridescent-from)]/25 hover:to-[var(--iridescent-to)]/25"
+                : ""
+            }`}
+          >
+            Get my badge — $9
+          </button>
+          <p className="mt-2 font-sans text-xs text-foreground/75">
+            Secure checkout via Stripe. Full refund if generation fails.
+          </p>
         </section>
 
         {/* CTA — desktop */}
