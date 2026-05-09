@@ -11,7 +11,7 @@ export const Route = createFileRoute("/create")({
 
 const NAME_MAX = 20;
 const FETCH_TIMEOUT_MS = 60_000;
-const BACKEND_URL = (import.meta.env.VITE_BACKEND_URL as string | undefined) ?? "";
+import { BACKEND_URL } from "@/lib/config";
 
 function CreatePage() {
   const navigate = useNavigate();

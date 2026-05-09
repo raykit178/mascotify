@@ -7,7 +7,7 @@ export const Route = createFileRoute("/generate")({
   component: GeneratePage,
 });
 
-const BACKEND_URL = (import.meta.env.VITE_BACKEND_URL as string | undefined) ?? "";
+import { BACKEND_URL } from "@/lib/config";
 const ERROR_MSG =
   "We couldn't process this photo. You'll receive a full refund automatically.";
 
