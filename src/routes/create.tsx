@@ -57,8 +57,22 @@ function CreatePage() {
 
   async function handleCheckout() {
     if (!canSubmit) return;
-    // Production: call BACKEND_URL/checkout to get Stripe session, redirect, then generate on return.
-    await generate();
+    try {
+      const res = await fetch(`${BACKEND_URL}/create-checkout-session`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name: name.trim(), style }),
+      });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = (await res.json()) as { url: string };
+      window.location.href = data.url;
+    } catch (err) {
+      console.error(err);
+      badgeStore.set({
+        screen: "error",
+        errorMsg: "We couldn't start checkout. Please try again.",
+      });
+    }
   }
 
   if (screen === "generating") return <Generating />;
