@@ -30,10 +30,12 @@ function CreatePage() {
     if (!photo) return;
     badgeStore.set({ screen: "generating", errorMsg: "" });
     try {
+      const paymentId = new URLSearchParams(window.location.search).get("payment_id") ?? "";
       const fd = new FormData();
       fd.append("photo", photo);
       fd.append("style", style);
       fd.append("name", name.trim());
+      fd.append("payment_id", paymentId);
       const ctrl = new AbortController();
       const t = setTimeout(() => ctrl.abort(), FETCH_TIMEOUT_MS);
       const res = await fetch(`${BACKEND_URL}/generate`, {
