@@ -68,7 +68,7 @@ function Landing() {
               <Stat n="$9" label="One-time" />
             </div>
             <p className="font-sans text-[11px] text-muted-foreground">
-              Secure checkout via Stripe. Full refund if generation fails.
+              Secure checkout via Dodo Payments. Full refund if generation fails.
             </p>
           </div>
         </div>
@@ -84,7 +84,7 @@ function Landing() {
             </p>
             <div className="mt-8"><CTA /></div>
             <p className="mt-3 font-sans text-xs text-muted-foreground">
-              Secure checkout via Stripe. Full refund if generation fails.
+              Secure checkout via Dodo Payments. Full refund if generation fails.
             </p>
           </section>
           <section className="flex justify-end">

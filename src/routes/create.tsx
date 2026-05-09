@@ -200,7 +200,7 @@ function CreatePage() {
             Get my badge — $9
           </button>
           <p className="mt-2 font-sans text-xs text-foreground/75">
-            Secure checkout via Stripe. Full refund if generation fails.
+            Secure checkout via Dodo Payments. Full refund if generation fails.
           </p>
         </section>
 
@@ -220,7 +220,7 @@ function CreatePage() {
           Get my badge — $9
         </button>
         <p className="mt-2 text-center font-sans text-[10px] text-muted-foreground">
-          Secure checkout via Stripe · Full refund if generation fails
+          Secure checkout via Dodo Payments · Full refund if generation fails
         </p>
       </div>
     </div>
