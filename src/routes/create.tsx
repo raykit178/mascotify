@@ -58,8 +58,24 @@ function CreatePage() {
   }
 
   async function handleCheckout() {
-    if (!canSubmit) return;
+    if (!canSubmit || !photo) return;
     try {
+      const photoDataUrl = await new Promise<string>((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result as string);
+        reader.onerror = () => reject(reader.error);
+        reader.readAsDataURL(photo);
+      });
+      sessionStorage.setItem(
+        "badgeOrder",
+        JSON.stringify({
+          photoDataUrl,
+          photoName: photo.name,
+          photoType: photo.type,
+          style,
+          name: name.trim(),
+        }),
+      );
       const res = await fetch(`${BACKEND_URL}/create-checkout-session`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
