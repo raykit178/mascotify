@@ -54,6 +54,8 @@ function GeneratePage() {
         fd.append("name", order.name);
         fd.append("payment_id", paymentId);
 
+        console.log("[generate] payment_id from URL:", paymentId);
+
         const res = await fetch(`${BACKEND_URL}/generate`, {
           method: "POST",
           body: fd,
