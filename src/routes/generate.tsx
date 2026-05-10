@@ -55,6 +55,7 @@ function GeneratePage() {
         fd.append("payment_id", paymentId);
 
         console.log("[generate] payment_id from URL:", paymentId);
+        console.log("[generate] style from FormData:", order.style);
 
         const res = await fetch(`${BACKEND_URL}/generate`, {
           method: "POST",
