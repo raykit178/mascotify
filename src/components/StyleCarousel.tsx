@@ -8,18 +8,21 @@ import vectorOut from "@/assets/vector_output.png";
 
 export const STYLES = [
   {
+    value: "classic_engraving",
     name: "Classic Engraving",
     description: "Hand-etched detail with timeless monochrome shading.",
     input: engravingIn,
     output: engravingOut,
   },
   {
-    name: "Geometric Shadows",
+    value: "geometric_shadow",
+    name: "Geometric Shadow",
     description: "Bold geometric planes with deep contrast and modern edge.",
     input: geometricIn,
     output: geometricOut,
   },
   {
+    value: "clean_vector",
     name: "Clean Vector",
     description: "Crisp vector lines, flat fills — versatile for any platform.",
     input: vectorIn,
