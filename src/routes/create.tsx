@@ -161,11 +161,11 @@ function CreatePage() {
           <SectionLabel n="02" title="Pick a style" />
           <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-3">
             {STYLES.map((s) => {
-              const selected = style === s.name;
+              const selected = style === s.value;
               return (
                 <button
-                  key={s.name}
-                  onClick={() => badgeStore.set({ style: s.name })}
+                  key={s.value}
+                  onClick={() => badgeStore.set({ style: s.value })}
                   className={`group relative text-left rounded-lg border p-3 transition ${
                     selected
                       ? "border-transparent bg-card/80 ring-2 ring-[var(--iridescent-from)] shadow-[0_0_0_1px_var(--iridescent-to),0_18px_50px_-15px_rgba(120,80,255,0.6)]"

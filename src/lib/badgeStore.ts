@@ -16,7 +16,7 @@ let state: State = {
   photo: null,
   photoPreview: null,
   name: "",
-  style: "Classic Engraving",
+  style: "classic_engraving",
   resultUrl: null,
   errorMsg: "",
   screen: "idle",
