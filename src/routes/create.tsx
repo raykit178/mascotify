@@ -299,7 +299,26 @@ function CreatePage() {
         <p className="mt-2 text-center font-sans text-[10px] text-muted-foreground">
           Secure checkout via Dodo Payments · Full refund if generation fails
         </p>
-      </div>
+      <Dialog open={!!previewStyle} onOpenChange={(o) => !o && setPreviewValue(null)}>
+        <DialogContent className="max-w-lg p-4 sm:p-6">
+          <DialogTitle className="font-display text-xl font-light">
+            {previewStyle?.name} <span className="text-muted-foreground text-sm font-sans">— sample</span>
+          </DialogTitle>
+          <DialogDescription className="font-sans text-xs text-muted-foreground">
+            {previewStyle?.description}
+          </DialogDescription>
+          {previewStyle ? (
+            <div className="mt-2 aspect-square w-full overflow-hidden rounded-md bg-foreground">
+              <img
+                src={previewStyle.output}
+                alt={`${previewStyle.name} sample`}
+                className="h-full w-full object-contain"
+              />
+            </div>
+          ) : null}
+        </DialogContent>
+      </Dialog>
+    </div>
     </div>
   );
 }
