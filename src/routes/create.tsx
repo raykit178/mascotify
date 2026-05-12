@@ -299,6 +299,7 @@ function CreatePage() {
         <p className="mt-2 text-center font-sans text-[10px] text-muted-foreground">
           Secure checkout via Dodo Payments · Full refund if generation fails
         </p>
+      </div>
       <Dialog open={!!previewStyle} onOpenChange={(o) => !o && setPreviewValue(null)}>
         <DialogContent className="max-w-lg p-4 sm:p-6">
           <DialogTitle className="font-display text-xl font-light">
@@ -318,7 +319,6 @@ function CreatePage() {
           ) : null}
         </DialogContent>
       </Dialog>
-    </div>
     </div>
   );
 }
