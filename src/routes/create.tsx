@@ -18,6 +18,8 @@ import { BACKEND_URL } from "@/lib/config";
 function CreatePage() {
   const navigate = useNavigate();
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const [previewValue, setPreviewValue] = useState<string | null>(null);
+  const previewStyle = STYLES.find((s) => s.value === previewValue) ?? null;
   const { photo, photoPreview, name, style, screen, errorMsg } = useBadgeStore((s) => s);
 
   const canSubmit = !!photo && name.trim().length > 0;
