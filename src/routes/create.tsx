@@ -1,8 +1,10 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
-import { useRef } from "react";
+import { useRef, useState } from "react";
+import { ZoomIn } from "lucide-react";
 import { STYLES } from "@/components/StyleCarousel";
 import { BrandHeader } from "@/components/BrandHeader";
 import { BackgroundFx } from "@/components/BackgroundFx";
+import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { badgeStore, useBadgeStore } from "@/lib/badgeStore";
 
 export const Route = createFileRoute("/create")({
