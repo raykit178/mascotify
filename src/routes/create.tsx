@@ -177,8 +177,49 @@ function CreatePage() {
                   }`}
                 >
                   <div className="flex items-start gap-3 sm:flex-col sm:gap-2">
-                    <div className="shrink-0 aspect-square w-20 sm:w-full overflow-hidden rounded-md bg-foreground">
+                    <div className="group/img relative shrink-0 aspect-square w-20 sm:w-full overflow-hidden rounded-md bg-foreground">
                       <img src={s.output} alt={s.name} className="h-full w-full object-contain" />
+                      {/* Desktop: hover overlay */}
+                      <span
+                        role="button"
+                        tabIndex={0}
+                        aria-label={`Preview ${s.name} sample`}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setPreviewValue(s.value);
+                        }}
+                        onKeyDown={(e) => {
+                          if (e.key === "Enter" || e.key === " ") {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            setPreviewValue(s.value);
+                          }
+                        }}
+                        className="absolute inset-0 hidden sm:flex items-center justify-center gap-1.5 bg-background/70 backdrop-blur-sm text-foreground text-[10px] font-sans uppercase tracking-wider opacity-0 transition group-hover/img:opacity-100 cursor-zoom-in"
+                      >
+                        <ZoomIn className="h-4 w-4" />
+                        View sample
+                      </span>
+                      {/* Mobile: persistent zoom badge */}
+                      <span
+                        role="button"
+                        tabIndex={0}
+                        aria-label={`Preview ${s.name} sample`}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setPreviewValue(s.value);
+                        }}
+                        onKeyDown={(e) => {
+                          if (e.key === "Enter" || e.key === " ") {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            setPreviewValue(s.value);
+                          }
+                        }}
+                        className="sm:hidden absolute bottom-1 right-1 flex h-7 w-7 items-center justify-center rounded-full bg-background/90 text-foreground shadow-md ring-1 ring-foreground/15"
+                      >
+                        <ZoomIn className="h-3.5 w-3.5" />
+                      </span>
                     </div>
                     <div className="min-w-0 flex-1">
                       <div className="flex items-start justify-between gap-2">
