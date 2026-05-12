@@ -10,7 +10,11 @@ export function BrandHeader({ right }: { right?: ReactNode }) {
       >
         BADGEBORN<sup className="text-[8px] ml-0.5 align-super">™</sup>
       </Link>
-      {right ? <div className="flex-1 flex justify-end">{right}</div> : null}
+      {right ? (
+        <div className="flex-1 flex justify-end sm:absolute sm:inset-x-0 sm:justify-center sm:pointer-events-none">
+          <div className="sm:pointer-events-auto">{right}</div>
+        </div>
+      ) : null}
     </header>
   );
 }
