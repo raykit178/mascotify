@@ -179,7 +179,7 @@ function CreatePage() {
                   <div className="flex items-start gap-3 sm:flex-col sm:gap-2">
                     <div className="group/img relative shrink-0 aspect-square w-20 sm:w-full overflow-hidden rounded-md bg-foreground">
                       <img src={s.output} alt={s.name} className="h-full w-full object-contain" />
-                      {/* Desktop: hover overlay */}
+                      {/* Desktop: hover-only "View sample" pill at the bottom; image stays unblurred */}
                       <span
                         role="button"
                         tabIndex={0}
@@ -195,12 +195,14 @@ function CreatePage() {
                             setPreviewValue(s.value);
                           }
                         }}
-                        className="absolute inset-0 hidden sm:flex items-center justify-center gap-1.5 bg-background/70 backdrop-blur-sm text-foreground text-[10px] font-sans uppercase tracking-wider opacity-0 transition group-hover/img:opacity-100 cursor-zoom-in"
+                        className="absolute inset-0 hidden md:block cursor-zoom-in"
                       >
-                        <ZoomIn className="h-4 w-4" />
-                        View sample
+                        <span className="absolute inset-x-0 bottom-0 flex items-center justify-center gap-1.5 bg-background/70 backdrop-blur-sm px-2 py-1.5 text-foreground text-[10px] font-sans uppercase tracking-wider opacity-0 transition group-hover/img:opacity-100">
+                          <ZoomIn className="h-3.5 w-3.5" />
+                          View sample
+                        </span>
                       </span>
-                      {/* Mobile: persistent zoom badge */}
+                      {/* Mobile & tablet: persistent zoom badge */}
                       <span
                         role="button"
                         tabIndex={0}
@@ -216,7 +218,7 @@ function CreatePage() {
                             setPreviewValue(s.value);
                           }
                         }}
-                        className="sm:hidden absolute bottom-1 right-1 flex h-7 w-7 items-center justify-center rounded-full bg-background/90 text-foreground shadow-md ring-1 ring-foreground/15"
+                        className="md:hidden absolute bottom-1 right-1 flex h-7 w-7 items-center justify-center rounded-full bg-background/90 text-foreground shadow-md ring-1 ring-foreground/15"
                       >
                         <ZoomIn className="h-3.5 w-3.5" />
                       </span>
