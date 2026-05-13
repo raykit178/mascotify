@@ -60,6 +60,17 @@ function ReadyPage() {
         >
           Make another
         </Link>
+
+        <p className="mt-10 max-w-md font-sans text-xs leading-relaxed text-muted-foreground">
+          Issues or feedback? Email us at{" "}
+          <a
+            href="mailto:hello@mascotify.app"
+            className="text-foreground underline-offset-4 hover:underline"
+          >
+            hello@mascotify.app
+          </a>{" "}
+          and attach your source photo and the output above.
+        </p>
       </main>
     </div>
   );
