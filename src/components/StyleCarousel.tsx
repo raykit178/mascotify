@@ -100,7 +100,7 @@ export function StyleCarousel({ compact = false }: { compact?: boolean }) {
 
         <div className={`flex items-center justify-between ${compact ? "px-2 pb-1.5 pt-0.5" : "px-3 pb-2 pt-1"}`}>
           <div className="flex items-center gap-1.5">
-            {STYLES.map((_, i) => (
+            {slides.map((_, i) => (
               <button
                 key={i}
                 onClick={() => setIndex(i)}
