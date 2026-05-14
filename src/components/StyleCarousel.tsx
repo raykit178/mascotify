@@ -1,12 +1,23 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import engravingIn from "@/assets/engraving_input.jpeg";
 import engravingOut from "@/assets/engraving_output.png";
 import geometricIn from "@/assets/geometric_input.jpeg";
 import geometricOut from "@/assets/geometric_output.png";
 import vectorIn from "@/assets/vector_input.jpeg";
 import vectorOut from "@/assets/vector_output.png";
+import neonNoirOut from "@/assets/neon_noir_output.png";
+import porcelainOut from "@/assets/3d_porcelain_output.png";
+import heritageHueOut from "@/assets/heritage_hue_output.png";
 
-export const STYLES = [
+type Style = {
+  value: string;
+  name: string;
+  description: string;
+  input?: string;
+  output: string;
+};
+
+export const STYLES: readonly Style[] = [
   {
     value: "classic_engraving",
     name: "Classic Engraving",
@@ -28,17 +39,36 @@ export const STYLES = [
     input: vectorIn,
     output: vectorOut,
   },
+  {
+    value: "neon_noir",
+    name: "Neon Noir",
+    description: "Electric magenta and indigo on jet black — bold, after-hours energy.",
+    output: neonNoirOut,
+  },
+  {
+    value: "porcelain_3d",
+    name: "Porcelain 3D",
+    description: "Glossy sculpted 3D portrait with playful, premium polish.",
+    output: porcelainOut,
+  },
+  {
+    value: "heritage_hue",
+    name: "Heritage Hue",
+    description: "Crosshatched heritage portrait in classic navy and ivory.",
+    output: heritageHueOut,
+  },
 ] as const;
 
 export function StyleCarousel({ compact = false }: { compact?: boolean }) {
+  const slides = useMemo(() => STYLES.filter((s): s is Style & { input: string } => !!s.input), []);
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
-    const id = setInterval(() => setIndex((i) => (i + 1) % STYLES.length), 3500);
+    const id = setInterval(() => setIndex((i) => (i + 1) % slides.length), 3500);
     return () => clearInterval(id);
-  }, []);
+  }, [slides.length]);
 
-  const slide = STYLES[index];
+  const slide = slides[index];
 
   return (
     <div
@@ -70,7 +100,7 @@ export function StyleCarousel({ compact = false }: { compact?: boolean }) {
 
         <div className={`flex items-center justify-between ${compact ? "px-2 pb-1.5 pt-0.5" : "px-3 pb-2 pt-1"}`}>
           <div className="flex items-center gap-1.5">
-            {STYLES.map((_, i) => (
+            {slides.map((_, i) => (
               <button
                 key={i}
                 onClick={() => setIndex(i)}
