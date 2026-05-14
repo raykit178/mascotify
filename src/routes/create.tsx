@@ -120,7 +120,7 @@ function CreatePage() {
         }
       />
 
-      <main className="relative z-10 mx-auto max-w-3xl px-6 pb-40 sm:pb-10 lg:px-10">
+      <main className="relative z-10 mx-auto max-w-3xl px-6 pb-56 sm:pb-10 lg:px-10">
         {/* Upload */}
         <section className="mt-2 sm:mt-4">
           <SectionLabel n="01" title="Upload your photo" />
