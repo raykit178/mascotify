@@ -60,14 +60,15 @@ export const STYLES: readonly Style[] = [
 ] as const;
 
 export function StyleCarousel({ compact = false }: { compact?: boolean }) {
+  const slides = useMemo(() => STYLES.filter((s): s is Style & { input: string } => !!s.input), []);
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
-    const id = setInterval(() => setIndex((i) => (i + 1) % STYLES.length), 3500);
+    const id = setInterval(() => setIndex((i) => (i + 1) % slides.length), 3500);
     return () => clearInterval(id);
-  }, []);
+  }, [slides.length]);
 
-  const slide = STYLES[index];
+  const slide = slides[index];
 
   return (
     <div
