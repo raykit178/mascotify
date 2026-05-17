@@ -195,12 +195,10 @@ function CreatePage() {
                             setPreviewValue(s.value);
                           }
                         }}
-                        className="absolute inset-0 hidden md:block cursor-zoom-in"
+                        className="absolute inset-x-0 bottom-0 hidden md:flex cursor-zoom-in items-center justify-center gap-1.5 bg-background/70 backdrop-blur-sm px-2 py-1.5 text-foreground text-[10px] font-sans uppercase tracking-wider opacity-0 transition group-hover/img:opacity-100"
                       >
-                        <span className="absolute inset-x-0 bottom-0 flex items-center justify-center gap-1.5 bg-background/70 backdrop-blur-sm px-2 py-1.5 text-foreground text-[10px] font-sans uppercase tracking-wider opacity-0 transition group-hover/img:opacity-100">
-                          <ZoomIn className="h-3.5 w-3.5" />
-                          View sample
-                        </span>
+                        <ZoomIn className="h-3.5 w-3.5" />
+                        View sample
                       </span>
                       {/* Mobile & tablet: persistent zoom badge */}
                       <span
