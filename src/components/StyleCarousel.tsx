@@ -67,7 +67,7 @@ export function StyleCarousel({ compact = false }: { compact?: boolean }) {
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
-    const id = setInterval(() => setIndex((i) => (i + 1) % slides.length), 3500);
+    const id = setInterval(() => setIndex((i) => (i + 1) % slides.length), 3150);
     return () => clearInterval(id);
   }, [slides.length]);
 
