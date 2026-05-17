@@ -43,18 +43,21 @@ export const STYLES: readonly Style[] = [
     value: "neon_noir",
     name: "Neon Noir",
     description: "Electric magenta and indigo on jet black — bold, after-hours energy.",
+    input: engravingIn,
     output: neonNoirOut,
   },
   {
     value: "porcelain_3d",
     name: "Porcelain 3D",
     description: "Glossy sculpted 3D portrait with playful, premium polish.",
+    input: geometricIn,
     output: porcelainOut,
   },
   {
     value: "heritage_hue",
     name: "Heritage Hue",
     description: "Crosshatched heritage portrait in classic navy and ivory.",
+    input: vectorIn,
     output: heritageHueOut,
   },
 ] as const;
