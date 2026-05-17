@@ -19,11 +19,32 @@ type Style = {
 
 export const STYLES: readonly Style[] = [
   {
+    value: "porcelain_3d",
+    name: "Porcelain 3D",
+    description: "Glossy sculpted 3D portrait with playful, premium polish.",
+    input: geometricIn,
+    output: porcelainOut,
+  },
+  {
+    value: "heritage_hue",
+    name: "Heritage Hue",
+    description: "Crosshatched heritage portrait in classic navy and ivory.",
+    input: vectorIn,
+    output: heritageHueOut,
+  },
+  {
     value: "classic_engraving",
     name: "Classic Engraving",
     description: "Hand-etched detail with timeless monochrome shading.",
     input: engravingIn,
     output: engravingOut,
+  },
+  {
+    value: "neon_noir",
+    name: "Neon Noir",
+    description: "Electric magenta and indigo on jet black — bold, after-hours energy.",
+    input: engravingIn,
+    output: neonNoirOut,
   },
   {
     value: "geometric_shadow",
@@ -38,27 +59,6 @@ export const STYLES: readonly Style[] = [
     description: "Crisp vector lines, flat fills — versatile for any platform.",
     input: vectorIn,
     output: vectorOut,
-  },
-  {
-    value: "neon_noir",
-    name: "Neon Noir",
-    description: "Electric magenta and indigo on jet black — bold, after-hours energy.",
-    input: engravingIn,
-    output: neonNoirOut,
-  },
-  {
-    value: "porcelain_3d",
-    name: "Porcelain 3D",
-    description: "Glossy sculpted 3D portrait with playful, premium polish.",
-    input: geometricIn,
-    output: porcelainOut,
-  },
-  {
-    value: "heritage_hue",
-    name: "Heritage Hue",
-    description: "Crosshatched heritage portrait in classic navy and ivory.",
-    input: vectorIn,
-    output: heritageHueOut,
   },
 ] as const;
 
