@@ -37,7 +37,7 @@ function CTA() {
       to="/create"
       className="iridescent-border inline-block px-8 py-3.5 font-sans text-sm font-medium tracking-wide text-foreground hover:bg-foreground/[0.03]"
     >
-      Create your badge — $9
+      Create your badge — $4.99
     </Link>
   );
 }
@@ -65,7 +65,7 @@ function Landing() {
             <div className="grid grid-cols-3 gap-3 text-center">
               <Stat n="3" label="Styles" />
               <Stat n="~30s" label="Delivery" />
-              <Stat n="$9" label="One-time" />
+              <Stat n="$4.99" label="One-time" />
             </div>
             <p className="font-sans text-[11px] text-muted-foreground">
               Secure checkout via Dodo Payments. Full refund if generation fails.
