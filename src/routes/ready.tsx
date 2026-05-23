@@ -12,6 +12,7 @@ function ReadyPage() {
   const navigate = useNavigate();
   const { resultUrl, name } = useBadgeStore((s) => s);
 
+
   useEffect(() => {
     if (!resultUrl) navigate({ to: "/" });
   }, [resultUrl, navigate]);
