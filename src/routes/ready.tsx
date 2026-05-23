@@ -12,11 +12,8 @@ function ReadyPage() {
   const navigate = useNavigate();
   const { resultUrl, name } = useBadgeStore((s) => s);
 
-  useEffect(() => {
-    if (!resultUrl) navigate({ to: "/" });
-  }, [resultUrl, navigate]);
-
-  if (!resultUrl) return null;
+  // PREVIEW-ONLY temporary bypass
+  const displayUrl = resultUrl ?? "https://placehold.co/512x512/png?text=Badge";
 
   const filename = `${name.toLowerCase().replace(/\s+/g, "-") || "badge"}-badgeborn.png`;
 
