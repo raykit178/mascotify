@@ -33,12 +33,17 @@ function Headline() {
 
 function CTA() {
   return (
-    <Link
-      to="/create"
-      className="iridescent-border inline-block px-8 py-3.5 font-sans text-sm font-medium tracking-wide text-foreground hover:bg-foreground/[0.03]"
-    >
-      Create your badge — $4.99
-    </Link>
+    <div className="flex flex-col items-center gap-1.5">
+      <Link
+        to="/create"
+        className="iridescent-border inline-block px-8 py-3.5 font-sans text-sm font-medium tracking-wide text-foreground hover:bg-foreground/[0.03]"
+      >
+        Create your badge — <span className="text-muted-foreground line-through">$4.99</span>{" "}$1.99
+      </Link>
+      <span className="font-sans text-[10px] uppercase tracking-wider text-iridescent">
+        Limited Time Offer
+      </span>
+    </div>
   );
 }
 
@@ -65,7 +70,7 @@ function Landing() {
             <div className="grid grid-cols-3 gap-3 text-center">
               <Stat n="3" label="Styles" />
               <Stat n="~30s" label="Delivery" />
-              <Stat n="$4.99" label="One-time" />
+              <Stat n="$1.99" label="One-time" />
             </div>
             <p className="font-sans text-[11px] text-muted-foreground">
               Secure checkout via Dodo Payments. Full refund if generation fails.

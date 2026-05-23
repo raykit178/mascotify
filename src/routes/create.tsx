@@ -274,9 +274,12 @@ function CreatePage() {
                 : ""
             }`}
           >
-            Get my badge — $4.99
+            Get my badge — <span className="text-muted-foreground line-through">$4.99</span>{" "}$1.99
           </button>
-          <p className="mt-2 font-sans text-xs text-foreground/75">
+          <p className="mt-2 font-sans text-[10px] uppercase tracking-wider text-iridescent">
+            Limited Time Offer
+          </p>
+          <p className="mt-1 font-sans text-xs text-foreground/75">
             Secure checkout via Dodo Payments. Full refund if generation fails.
           </p>
         </section>
@@ -294,9 +297,12 @@ function CreatePage() {
               : ""
           }`}
         >
-          Get my badge — $4.99
+          Get my badge — <span className="text-muted-foreground line-through">$4.99</span>{" "}$1.99
         </button>
-        <p className="mt-2 text-center font-sans text-[10px] text-muted-foreground">
+        <p className="mt-2 text-center font-sans text-[10px] uppercase tracking-wider text-iridescent">
+          Limited Time Offer
+        </p>
+        <p className="mt-1 text-center font-sans text-[10px] text-muted-foreground">
           Secure checkout via Dodo Payments · Full refund if generation fails
         </p>
       </div>
