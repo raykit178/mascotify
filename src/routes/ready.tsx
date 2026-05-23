@@ -13,8 +13,11 @@ function ReadyPage() {
   const { resultUrl, name } = useBadgeStore((s) => s);
 
 
-  void navigate;
-  const displayUrl = resultUrl ?? "https://placehold.co/512x512/png?text=Badge";
+  useEffect(() => {
+    if (!resultUrl) navigate({ to: "/" });
+  }, [resultUrl, navigate]);
+
+  if (!resultUrl) return null;
 
   const filename = `${name.toLowerCase().replace(/\s+/g, "-") || "badge"}-badgeborn.png`;
 
