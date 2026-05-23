@@ -53,6 +53,15 @@ function ReadyPage() {
         <p className="mt-3 font-sans text-xs text-muted-foreground">
           Save it and use it anywhere — Twitch, Twitter, Discord.
         </p>
+        <p className="mt-2 font-sans text-xs text-muted-foreground">
+          Questions or issues? Drop us a line at{" "}
+          <a
+            href="mailto:badgeborn@gmail.com"
+            className="text-foreground underline-offset-4 hover:underline"
+          >
+            badgeborn@gmail.com
+          </a>
+        </p>
         <Link
           to="/"
           onClick={() => badgeStore.reset()}
