@@ -88,7 +88,7 @@ function Landing() {
               Upload one photo. Pick a style. Get a polished PNG you can use
               anywhere — Twitch, Twitter, Discord.
             </p>
-            <div className="mt-8"><CTA /></div>
+            <div className="mt-8"><CTA align="start" /></div>
             <p className="mt-3 font-sans text-xs text-muted-foreground">
               Secure checkout via Dodo Payments. Full refund if generation fails.
             </p>
