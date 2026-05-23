@@ -12,8 +12,6 @@ function ReadyPage() {
   const navigate = useNavigate();
   const { resultUrl, name } = useBadgeStore((s) => s);
 
-  // PREVIEW-ONLY temporary bypass
-  const displayUrl = resultUrl ?? "https://placehold.co/512x512/png?text=Badge";
 
   useEffect(() => {
     if (!resultUrl) navigate({ to: "/" });
@@ -39,7 +37,7 @@ function ReadyPage() {
         <div className="iridescent-border mt-8 p-4">
           <div className="rounded-md bg-foreground p-6">
             <img
-              src={displayUrl}
+              src={resultUrl}
               alt="Your generated mascot badge"
               className="mx-auto h-auto w-full max-w-sm"
             />
@@ -47,7 +45,7 @@ function ReadyPage() {
         </div>
 
         <a
-          href={displayUrl}
+          href={resultUrl}
           download={filename}
           className="iridescent-border mt-8 inline-block px-8 py-3.5 font-sans text-sm font-medium tracking-wide text-foreground hover:bg-foreground/[0.03]"
         >
