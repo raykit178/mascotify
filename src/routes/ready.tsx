@@ -51,17 +51,15 @@ function ReadyPage() {
         >
           Download PNG
         </a>
-        <p className="mt-3 font-sans text-xs text-muted-foreground">
-          Save it and use it anywhere — Twitch, Twitter, Discord.
-        </p>
-        <p className="mt-2 font-sans text-xs text-muted-foreground">
-          Questions or issues? Drop us a line at{" "}
+        <p className="mt-6 max-w-md font-sans text-xs leading-relaxed text-muted-foreground">
+          Issues or feedback? Email us at{" "}
           <a
             href="mailto:badgeborn@gmail.com"
             className="text-foreground underline-offset-4 hover:underline"
           >
             badgeborn@gmail.com
-          </a>
+          </a>{" "}
+          and attach your source photo and the output above.
         </p>
         <Link
           to="/"
@@ -70,17 +68,6 @@ function ReadyPage() {
         >
           Make another
         </Link>
-
-        <p className="mt-10 max-w-md font-sans text-xs leading-relaxed text-muted-foreground">
-          Issues or feedback? Email us at{" "}
-          <a
-            href="mailto:hello@mascotify.app"
-            className="text-foreground underline-offset-4 hover:underline"
-          >
-            hello@mascotify.app
-          </a>{" "}
-          and attach your source photo and the output above.
-        </p>
       </main>
     </div>
   );
