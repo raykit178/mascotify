@@ -34,7 +34,7 @@ function ReadyPage() {
         <div className="iridescent-border mt-8 p-4">
           <div className="rounded-md bg-foreground p-6">
             <img
-              src={resultUrl}
+              src={displayUrl}
               alt="Your generated mascot badge"
               className="mx-auto h-auto w-full max-w-sm"
             />
@@ -42,7 +42,7 @@ function ReadyPage() {
         </div>
 
         <a
-          href={resultUrl}
+          href={displayUrl}
           download={filename}
           className="iridescent-border mt-8 inline-block px-8 py-3.5 font-sans text-sm font-medium tracking-wide text-foreground hover:bg-foreground/[0.03]"
         >
