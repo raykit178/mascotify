@@ -39,7 +39,7 @@ function CTA({ align = "center" }: { align?: "center" | "start" }) {
         to="/create"
         className="iridescent-border inline-block px-8 py-3.5 font-sans text-sm font-medium tracking-wide text-foreground hover:bg-foreground/[0.03]"
       >
-        Create your badge — <span className="text-muted-foreground line-through">$4.99</span>{" "}$1.99
+        Create your badge — <span className="text-muted-foreground line-through">$4.99</span>{" "}$1
       </Link>
       <span className="inline-flex items-center gap-1.5 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 font-sans text-[10px] font-semibold uppercase tracking-[0.18em] text-iridescent shadow-[0_0_20px_-5px_hsl(var(--primary)/0.5)]">
         <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-primary" />
@@ -72,7 +72,7 @@ function Landing() {
             <div className="grid grid-cols-3 gap-3 text-center">
               <Stat n="3" label="Styles" />
               <Stat n="~30s" label="Delivery" />
-              <Stat n="$1.99" label="One-time" />
+              <Stat n="$1" label="One-time" />
             </div>
             <p className="font-sans text-[11px] text-muted-foreground">
               Secure checkout via Dodo Payments. Full refund if generation fails.
