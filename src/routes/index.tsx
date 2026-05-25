@@ -102,6 +102,7 @@ function Landing() {
           </section>
         </div>
       </main>
+      <SiteFooter />
     </div>
   );
 }
