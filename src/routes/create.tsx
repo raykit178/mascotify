@@ -274,7 +274,7 @@ function CreatePage() {
                 : ""
             }`}
           >
-            Get my badge — <span className="text-muted-foreground line-through">$4.99</span>{" "}$1.99
+            Get my badge — <span className="text-muted-foreground line-through">$4.99</span>{" "}$1
           </button>
           <p className="mt-2 font-sans text-[10px] uppercase tracking-wider text-iridescent">
             Limited Time Offer
@@ -297,7 +297,7 @@ function CreatePage() {
               : ""
           }`}
         >
-          Get my badge — <span className="text-muted-foreground line-through">$4.99</span>{" "}$1.99
+          Get my badge — <span className="text-muted-foreground line-through">$4.99</span>{" "}$1
         </button>
         <p className="mt-2 text-center font-sans text-[10px] uppercase tracking-wider text-iridescent">
           Limited Time Offer
