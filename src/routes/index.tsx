@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { StyleCarousel } from "@/components/StyleCarousel";
 import { BrandHeader } from "@/components/BrandHeader";
 import { BackgroundFx } from "@/components/BackgroundFx";
+import { SiteFooter } from "@/components/SiteFooter";
 
 export const Route = createFileRoute("/")({
   component: Landing,
@@ -101,6 +102,7 @@ function Landing() {
           </section>
         </div>
       </main>
+      <SiteFooter />
     </div>
   );
 }

@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ReadyRouteImport } from './routes/ready'
+import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as GenerateRouteImport } from './routes/generate'
 import { Route as CreateRouteImport } from './routes/create'
 import { Route as IndexRouteImport } from './routes/index'
@@ -17,6 +18,11 @@ import { Route as IndexRouteImport } from './routes/index'
 const ReadyRoute = ReadyRouteImport.update({
   id: '/ready',
   path: '/ready',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GenerateRoute = GenerateRouteImport.update({
@@ -39,12 +45,14 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/create': typeof CreateRoute
   '/generate': typeof GenerateRoute
+  '/privacy': typeof PrivacyRoute
   '/ready': typeof ReadyRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/create': typeof CreateRoute
   '/generate': typeof GenerateRoute
+  '/privacy': typeof PrivacyRoute
   '/ready': typeof ReadyRoute
 }
 export interface FileRoutesById {
@@ -52,20 +60,22 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/create': typeof CreateRoute
   '/generate': typeof GenerateRoute
+  '/privacy': typeof PrivacyRoute
   '/ready': typeof ReadyRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/create' | '/generate' | '/ready'
+  fullPaths: '/' | '/create' | '/generate' | '/privacy' | '/ready'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/create' | '/generate' | '/ready'
-  id: '__root__' | '/' | '/create' | '/generate' | '/ready'
+  to: '/' | '/create' | '/generate' | '/privacy' | '/ready'
+  id: '__root__' | '/' | '/create' | '/generate' | '/privacy' | '/ready'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CreateRoute: typeof CreateRoute
   GenerateRoute: typeof GenerateRoute
+  PrivacyRoute: typeof PrivacyRoute
   ReadyRoute: typeof ReadyRoute
 }
 
@@ -76,6 +86,13 @@ declare module '@tanstack/react-router' {
       path: '/ready'
       fullPath: '/ready'
       preLoaderRoute: typeof ReadyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/generate': {
@@ -106,6 +123,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CreateRoute: CreateRoute,
   GenerateRoute: GenerateRoute,
+  PrivacyRoute: PrivacyRoute,
   ReadyRoute: ReadyRoute,
 }
 export const routeTree = rootRouteImport
