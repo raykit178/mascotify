@@ -152,3 +152,23 @@
   @keyframes spin-slow { to { transform: rotate(360deg); } }
   .animate-spin-slow { animation: spin-slow 1.6s linear infinite; }
 }
+
+@layer components {
+  .prose-privacy {
+    color: #1f2937;
+    font-family: ui-sans-serif, system-ui, sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+  .prose-privacy h1 { font-size: 2rem; font-weight: 700; margin: 0 0 1rem; }
+  .prose-privacy h2 { font-size: 1.35rem; font-weight: 700; margin: 2rem 0 0.75rem; }
+  .prose-privacy h3 { font-size: 1.1rem; font-weight: 600; margin: 1.5rem 0 0.5rem; }
+  .prose-privacy p { margin: 0 0 1rem; }
+  .prose-privacy ul { list-style: disc; padding-left: 1.5rem; margin: 0 0 1rem; }
+  .prose-privacy ol { list-style: decimal; padding-left: 1.5rem; margin: 0 0 1rem; }
+  .prose-privacy li { margin-bottom: 0.4rem; }
+  .prose-privacy a { color: #2563eb; text-decoration: underline; }
+  .prose-privacy strong { font-weight: 600; }
+  .prose-privacy em { font-style: italic; }
+  .prose-privacy u { text-decoration: underline; }
+}
