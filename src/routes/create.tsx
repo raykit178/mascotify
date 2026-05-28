@@ -64,12 +64,7 @@ function CreatePage() {
   async function handleCheckout() {
     if (!canSubmit || !photo) return;
     try {
-      const photoDataUrl = await new Promise<string>((resolve, reject) => {
-        const reader = new FileReader();
-        reader.onload = () => resolve(reader.result as string);
-        reader.onerror = () => reject(reader.error);
-        reader.readAsDataURL(photo);
-      });
+      const photoDataUrl = await compressImage(photo, 1200, 0.85);
       sessionStorage.setItem(
         "badgeOrder",
         JSON.stringify({
