@@ -13,6 +13,32 @@ export const Route = createFileRoute("/create")({
 
 const NAME_MAX = 20;
 const FETCH_TIMEOUT_MS = 60_000;
+
+async function compressImage(file: File, maxSize: number, quality: number): Promise<string> {
+  const dataUrl = await new Promise<string>((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(reader.result as string);
+    reader.onerror = () => reject(reader.error);
+    reader.readAsDataURL(file);
+  });
+  const img = await new Promise<HTMLImageElement>((resolve, reject) => {
+    const i = new Image();
+    i.onload = () => resolve(i);
+    i.onerror = reject;
+    i.src = dataUrl;
+  });
+  const scale = Math.min(1, maxSize / Math.max(img.width, img.height));
+  const w = Math.round(img.width * scale);
+  const h = Math.round(img.height * scale);
+  const canvas = document.createElement("canvas");
+  canvas.width = w;
+  canvas.height = h;
+  const ctx = canvas.getContext("2d");
+  if (!ctx) throw new Error("Canvas context unavailable");
+  ctx.drawImage(img, 0, 0, w, h);
+  return canvas.toDataURL("image/jpeg", quality);
+}
+const FETCH_TIMEOUT_MS = 60_000;
 import { BACKEND_URL } from "@/lib/config";
 
 function CreatePage() {
