@@ -38,7 +38,6 @@ async function compressImage(file: File, maxSize: number, quality: number): Prom
   ctx.drawImage(img, 0, 0, w, h);
   return canvas.toDataURL("image/jpeg", quality);
 }
-const FETCH_TIMEOUT_MS = 60_000;
 import { BACKEND_URL } from "@/lib/config";
 
 function CreatePage() {
