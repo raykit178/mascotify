@@ -1,13 +1,13 @@
 import { useEffect, useMemo, useState } from "react";
 import engravingIn from "@/assets/engraving_input.jpeg";
-import engravingOut from "@/assets/engraving_output.png";
+import engravingOut from "@/assets/engraving_output.webp";
 import geometricIn from "@/assets/geometric_input.jpeg";
-import geometricOut from "@/assets/geometric_output.png";
+import geometricOut from "@/assets/geometric_output.webp";
 import vectorIn from "@/assets/vector_input.jpeg";
-import vectorOut from "@/assets/vector_output.png";
-import neonNoirOut from "@/assets/neon_noir_output.png";
-import porcelainOut from "@/assets/3d_porcelain_output.png";
-import heritageHueOut from "@/assets/heritage_hue_output.png";
+import vectorOut from "@/assets/vector_output.webp";
+import neonNoirOut from "@/assets/neon_noir_output.webp";
+import porcelainOut from "@/assets/3d_porcelain_output.webp";
+import heritageHueOut from "@/assets/heritage_hue_output.webp";
 
 type Style = {
   value: string;
