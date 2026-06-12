@@ -1,0 +1,1 @@
+On the homepage CTA button, change the displayed price from **$1** back to **$1.99**. The struckthrough $4.99 and all other copy remain unchanged. This is a single-line edit in `src/routes/index.tsx`.
