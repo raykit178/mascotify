@@ -3,5 +3,5 @@
   "name": "mascotify",
   "compatibility_date": "2026-04-04",
   "compatibility_flags": ["nodejs_compat"],
-  "main": "@tanstack/react-start/server-entry"
+  "main": "dist/server/server.js"
 }
